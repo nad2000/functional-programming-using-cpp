@@ -27,3 +27,5 @@ int main() {
 	cout << "RESULT: " << result << endl;
 }
 
+// TODO: modify so it works with floating point number too, change product to
+// addition. Create own implementation for transform and reduce.
