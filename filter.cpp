@@ -20,9 +20,9 @@ vector<int> xs = {0, 1, 2, 3, 4};
 const auto ys = fplus::keep_if(is_even, xs);
 
 // own implementation of keep_if
-template <typename F, typename T> vector<T> keep_if0(F f, const vector<T>& xs) {
-	vector<T> ys;
-	for (auto v: xs) if (f(v)) ys.push_back(v);
+template <typename F, typename Cont> Cont keep_if0(F f, const Cont& xs) {
+	Cont ys;
+	for (auto const v: xs) if (f(v)) ys.push_back(v);
 	return ys;
 }
 
