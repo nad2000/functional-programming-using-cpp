@@ -24,6 +24,13 @@ loopEnd:
 }
 
 
+Inst square_vec_for0(const Inst& xs) {
+	Inst ys;
+	ys.reserve(xs.size());
+	for(auto i=0; i<xs.size(); ++i) ys.push_back(xs[i]);
+	return ys;
+}
+
 Inst square_vec_while(const Inst& xs) {
 	Inst ys;
 	ys.reserve(xs.size());
@@ -80,6 +87,7 @@ Inst sqr_fplus_vec(const Inst& xs) {
 
 int main() {
 	Inst xs(8192);
-	for (auto i = 0; i < 65536; ++i) sqr_fplus_vec(xs);
+	//for (auto i = 0; i < 65536; ++i) sqr_fplus_vec(xs);
+	for (auto i = 0; i < 65536; ++i) square_vec_for0(xs);
 	// for (auto i = 0; i < 65536; ++i) square_vec_goto(xs);
 }
