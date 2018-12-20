@@ -20,38 +20,27 @@ using namespace std;
 
 typedef pair<float, float> point;
 
-float distance(const point& p1, const point& p2) {
+inline float distance(const point& p1, const point& p2) {
 	auto const dx = p2.first - p1.first;
 	auto const dy = p2.second - p1.second;
 	return sqrt(dx*dx + dy*dy);
+}
+
+inline const vector<pair<point, point>> get_edges(const vector<point>& polygon) {
+	return fplus::overlapping_pairs_cyclic(polygon);
+}
+
+inline const float edge_length(const pair<point, point>& e) {
+      return distance(e.first, e.second);
 }
 
 int main() {
 
 	vector<point> polygon =  { {1, 2}, {7, 3}, {6, 5}, {4 ,4}, {2, 9} };
 	// Find the longest edge of the polygon.
-	int p1, p2;
-	float md = 0.0;
-	for (auto i=0; i<polygon.size(); ++i)
-		for (auto j=i+1; j<polygon.size(); ++j) {
-			auto const d = distance(polygon[i], polygon[j]);
-			if (d > md) {
-				p1 = i;
-				p2 = j;
-				md = d;
-			}
-		}
-	PRINT_POLYGON(polygon);
-	cout << "P1: " << p1 << endl;
-	cout << "P2: " << p2 << endl;
-	cout << "D: " << md << endl;
 
 	const auto edges = fplus::overlapping_pairs_cyclic(polygon);
-	const auto result = fplus::maximum_on(
-		      [](auto e) {return distance(e.first, e.second);}, edges);
+	const auto result = fplus::maximum_on(edge_length, get_edges(polygon));
 	cout << fplus::show(result) <<endl;
 }
-
-
-
 
