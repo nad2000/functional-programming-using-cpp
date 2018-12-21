@@ -1,5 +1,5 @@
-#include <iostream>
 #include <fplus/fplus.hpp>
+#include <iostream>
 #include <math.h>
 
 using namespace std;
@@ -28,4 +28,13 @@ int main() {
 	cout << fplus::show(result2) <<endl;
 }
 
-
+// TODO:
+//     Invent a quite long chain of function applications,
+//     at least 5 functions,
+//     and implement its application to an input value
+//     in all three styles:
+//         1) Assign intermediate values to variables.
+//         2) Nested function calls
+//         3) Foward-application style
+//     Compare all three versions and contemplate
+//     the readability of all of them.
