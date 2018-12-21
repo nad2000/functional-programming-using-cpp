@@ -31,4 +31,6 @@ int main() {
 		};
 	};
 	cout << "ADD FOUR: " << add_four(1)(2)(3)(4) << endl;
+	// test:
+	assert(add_four(1)(2)(3)(4) == 1+2+3+4);
 }
