@@ -17,6 +17,9 @@ int main() {
 	const auto yss = fplus::transform(
 	  [](auto s) {return fplus::transform(square, s);}, xss);
 	cout << fplus::show(yss) <<endl;
+	// Alternatively
+	cout << fplus::show(
+	     fplus::transform(fplus::fwd::transform(square), xss)) <<endl;
 
 	auto add_four = [](auto v1){
 		return [v1](auto v2) {
