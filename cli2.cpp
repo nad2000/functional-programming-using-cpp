@@ -1,5 +1,6 @@
 #include "cmd.hpp"
 
+using namespace std;
 using namespace fplus;
 
 int main() {
