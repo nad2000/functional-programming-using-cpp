@@ -60,6 +60,17 @@ int main(int argc, char* argv[]) {
 
 	const auto output = lift_maybe(show_median, res);
 	cout << just_with_default(error_msg, output) << endl;
+
+	// Kleisli composition
+	const auto res2 = fwd::apply(arguments
+		, compose_maybe(
+			get_intput_filepath,
+			read_file,
+			parse_content,
+			calc_median)
+		);
+	const auto output2 = lift_maybe(show_median, res2);
+	cout << just_with_default(error_msg, output2) << endl;
 }
 
 
